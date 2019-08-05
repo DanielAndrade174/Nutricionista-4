@@ -5,12 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UsuarioViewPage } from './usuario-view.page';
+import { PerfilNPage } from './perfil-n.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
     path: '',
-    component: UsuarioViewPage
+    component: PerfilNPage
   }
 ];
 
@@ -19,8 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UsuarioViewPage]
+  declarations: [PerfilNPage]
 })
-export class UsuarioViewPageModule {}
+export class PerfilNPageModule {}

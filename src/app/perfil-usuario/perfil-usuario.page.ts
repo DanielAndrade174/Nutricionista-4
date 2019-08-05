@@ -13,7 +13,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class PerfilUsuarioPage implements OnInit {
 
-  perfilUsuario: Usuario = new Usuario();
+  Usuario: Usuario = new Usuario();
   id: string;
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
@@ -36,8 +36,8 @@ export class PerfilUsuarioPage implements OnInit {
     var ref = firebase.firestore().collection("usuario").doc(this.id);
 
     ref.get().then(doc => {
-        this.perfilUsuario.setDados(doc.data());
-        this.perfilUsuario.id = doc.id;
+        this.Usuario.setDados(doc.data());
+        this.Usuario.id = doc.id;
         this.downloadFoto();
     }).catch(function (error) {
       console.log("Error getting document:", error);

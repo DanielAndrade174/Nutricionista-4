@@ -13,21 +13,25 @@
 <ion-content *ngIf="!isLoading">
   <ion-card>
 
-    <ion-card-title class="t">{{Usuario?.nome}} {{Usuario?.sobrenome}}</ion-card-title>
+    <ion-fab vertical="top" horizontal="end" slot="fixed" (click)="edt()">
+      <ion-icon name="settings" class="config"></ion-icon>
+    </ion-fab>
+
+    <ion-card-title class="t">{{Nutricionista?.nome}} {{Nutricionista?.sobrenome}}</ion-card-title>
 
     <ion-card-header>
-      <img src="{{imagem}}" class="perfil" />
+      <img src="{{picture}}" class="perfil" />
     </ion-card-header>
 
     <ion-toolbar color="medium">
       <ion-card-title class="cor1">
-        <ion-icon ios="ios-call" md="md-call"></ion-icon> Telefone: {{Usuario?.telefone}}
+        <ion-icon ios="ios-call" md="md-call"></ion-icon> Telefone: {{Nutricionista?.telefone}}
       </ion-card-title>
       <ion-card-title class="cor2">
-        <ion-icon ios="ios-tablet-portrait" md="md-tablet-portrait"></ion-icon> Celular: {{Usuario?.cel}}
+        <ion-icon ios="ios-tablet-portrait" md="md-tablet-portrait"></ion-icon> Celular: {{Nutricionista?.cel}}
       </ion-card-title>
       <ion-card-title class="cor2">
-        <ion-icon ios="ios-map" md="md-map"></ion-icon> Cidade: {{Usuario?.cidade}}
+        <ion-icon ios="ios-map" md="md-map"></ion-icon> Cidade: {{Nutricionista?.cidade}}
       </ion-card-title>
       <ion-card-title class="cor4">
         <ion-icon ios="ios-at" md="md-at"></ion-icon> Email: {{usuarioEmail}}

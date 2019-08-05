@@ -32,17 +32,13 @@ export class ChatUsuarioPage implements OnInit {
     public firebaseauth : AngularFireAuth,
     private formBuilder : FormBuilder, ) {
       
-      
       this.idUsuario = this.activatedRoute.snapshot.paramMap.get('usuario');
-      
-
       
       this.firebaseauth.authState.subscribe(obj=>{
         this.idNutricionista = this.firebaseauth.auth.currentUser.uid;
 
-       console.log("Usuario 2 "+this.idUsuario)
-      
-
+       console.log(this.idNutricionista)
+  
       });
 
     }
@@ -67,6 +63,23 @@ export class ChatUsuarioPage implements OnInit {
 
   }
 
+
+
+  atualiza(){
+    let ref = this.firestore.doc('mensagem/'+this.idNutricionista).collection(this.idUsuario);
+    ref.get().then(doc =>{
+      doc.forEach(c=>{
+        
+       let m = new Mensagem();
+        m.setDados(c.data());
+        this.conversa.push(m);
+        
+      })
+      
+    })
+
+
+  }
 
 
  

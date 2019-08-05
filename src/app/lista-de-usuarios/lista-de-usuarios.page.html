@@ -2,7 +2,8 @@
   <ion-toolbar color="dark">
 
     <ion-icon (click)="Home()" slot="start" name="arrow-back" class="iconeconf"></ion-icon>
-    <ion-icon slot="start" name="contact" class="iconeconf"></ion-icon>
+
+    <ion-icon slot="start" name="contact" class="iconeconf" (click)="Perfil()"></ion-icon>
 
     <div class="div2">
       <ion-title>
@@ -19,21 +20,21 @@
 <ion-content>
   <ion-toolbar color="success">
     <ion-title>Usuarios</ion-title>
-     <ion-row>
-      <ion-searchbar  [ngStyle]="{'display':filtroBox}" #textoBusca animated placeholder="Procurar" (ionChange)="busca()"  (ionChange)="presentActionSheet()"></ion-searchbar>
-     </ion-row>
-     
-     
-     <ion-icon name="search" slot="end" size="large" id="market" (click)="showFilter()" class=""></ion-icon>
+    <ion-row>
+      <ion-searchbar [ngStyle]="{'display':filtroBox}" #textoBusca animated placeholder="Procurar" (ionChange)="busca()"
+        (ionChange)="presentActionSheet()"></ion-searchbar>
+    </ion-row>
+
+    <ion-icon name="search" slot="end" size="large" id="market" (click)="showFilter()" class=""></ion-icon>
   </ion-toolbar>
 
   <ion-item *ngFor="let usuario of listaDeUsuarios">
     <ion-thumbnail slot="start" (click)="perfilUsuario(usuario)">
       <img src="{{usuario?.imagem}}" class="circle">
     </ion-thumbnail>
-    <ion-label (click)="Chat(usuario.de)">
-      <p>{{usuario.de}}</p>
-      
+    <ion-label (click)="Chat(usuario)">
+      <p>{{usuario.id}}</p>
+      <p>{{usuario.nome}}</p>
     </ion-label>
   </ion-item>
 

@@ -1,22 +1,25 @@
 export class Nutricionista{
-
+ 
     id : string;
-    nome : string;
-    endereco : string;
-    telefone : string;
-    email : string;
-    senha : string;
+    nome: string;
+    sobrenome: string;
+    telefone: string;
+    cel: string;
+    cidade: string;
     imagem : string;
-
+   
     constructor(){   
     }
 
     // Dados do firebase
-    setDados(obj : any){
+       setDados(obj : any){
+       this.id = obj.id;
         this.nome = obj.nome;
-        this.endereco = obj.endereco;
+        this.sobrenome = obj.sobrenome;
         this.telefone = obj.telefone;
-        this.email = obj.email;
-        this.senha = obj.senha;
+        this.cel = obj.cel;
+        this.cidade = obj.cidade;
+    
     }
+
 }

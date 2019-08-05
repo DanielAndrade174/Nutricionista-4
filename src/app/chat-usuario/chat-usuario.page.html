@@ -17,7 +17,7 @@
           <ion-grid>
             <ion-row>
               <ion-col col-2 text-left>
-               
+
               </ion-col>
               <ion-col col-10>
                 <p>{{msg.mensagem}}</p>
@@ -26,7 +26,7 @@
           </ion-grid>
         </div>
 
- 
+
       </div>
 
 
@@ -37,8 +37,6 @@
 <ion-footer no-border>
   <ion-toolbar color="dark">
     <ion-textarea placeholder="Digite aqui..." name="message" slot="start" #txtarea></ion-textarea>
-    <ion-icon slot="end" name="attach" color="medium" class="iconeconf"></ion-icon>
-    <ion-icon slot="end" name="camera" color="medium" class="iconeconf"></ion-icon>
     <ion-icon slot="end" name="send" color="medium" class="iconeconf" (click)="enviarMensagem()"></ion-icon>
   </ion-toolbar>
 

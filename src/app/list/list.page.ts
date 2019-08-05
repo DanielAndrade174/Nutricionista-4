@@ -37,7 +37,7 @@ export class ListPage implements OnInit {
   }
 
   Perfil() {
-    this.router.navigate(['/perfil']);
+    this.router.navigate(['/perfil-n']);
   }
 
   ListaDeUsuarios(){

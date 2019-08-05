@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Nutricionista } from '../model/nutricionista';
 import * as firebase from 'firebase';
-import { ActivatedRoute } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Nutricionista } from '../model/nutricionista';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.page.html',
-  styleUrls: ['./perfil.page.scss'],
+  selector: 'app-perfil-n',
+  templateUrl: './perfil-n.page.html',
+  styleUrls: ['./perfil-n.page.scss'],
 })
-export class PerfilPage implements OnInit {
+export class PerfilNPage implements OnInit {
 
-  nutriEmail: string;
+  usuarioEmail: string;
   id: string;
-  perfilN: Nutricionista = new Nutricionista();
+  Nutricionista: Nutricionista = new Nutricionista();
   picture: string = "../../assets/imagens/1.gif";
 
   firestore = firebase.firestore();
@@ -31,19 +30,17 @@ export class PerfilPage implements OnInit {
     this.firebaseauth.authState.subscribe(obj => {
 
       this.id = this.firebaseauth.auth.currentUser.uid;
-      this.nutriEmail = this.firebaseauth.auth.currentUser.email;
+      this.usuarioEmail = this.firebaseauth.auth.currentUser.email;
 
       this.downloadFoto();
 
       let ref = this.firestore.collection('nutricionista').doc(this.id)
       ref.get().then(doc => {
-        this.perfilN.setDados(doc.data());
-        this.perfilN.id = doc.id;
-        console.log(this.perfilN);
+        this.Nutricionista.setDados(doc.data());
+        this.Nutricionista.id = doc.id;
+        console.log(this.Nutricionista);
 
-      }).catch(err => {
-        console.log(err)
-      });
+      })
 
     });
   }
@@ -54,7 +51,7 @@ export class PerfilPage implements OnInit {
 
   downloadFoto() {
     let ref = firebase.storage().ref()
-      .child(`perfil/${this.id}.jpg`);
+      .child(`nutricionista/${this.id}.jpg`);
 
     ref.getDownloadURL().then(url => {
       this.picture = url;

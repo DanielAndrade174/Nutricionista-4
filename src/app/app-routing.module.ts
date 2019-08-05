@@ -21,18 +21,12 @@ const routes: Routes = [
     loadChildren: './logoff/logoff.module#LogoffPageModule',
     canActivate: [Auth2Guard] 
   },
-  { path: 'nutricionista-view', loadChildren: './nutricionista-view/nutricionista-view.module#NutricionistaViewPageModule' },
-  { path: 'perfil-nutri', loadChildren: './perfil-nutri/perfil-nutri.module#PerfilNutriPageModule' },
   { path: 'lista-de-usuarios', loadChildren: './lista-de-usuarios/lista-de-usuarios.module#ListaDeUsuariosPageModule' },
-  { path: 'usuario-view', loadChildren: './usuario-view/usuario-view.module#UsuarioViewPageModule' },
   { path: 'perfil-usuario', loadChildren: './perfil-usuario/perfil-usuario.module#PerfilUsuarioPageModule' },
-  { path: 'chat-usuario', loadChildren: './chat-usuario/chat-usuario.module#ChatUsuarioPageModule' },  { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
+  { path: 'chat-usuario', loadChildren: './chat-usuario/chat-usuario.module#ChatUsuarioPageModule' },
   { path: 'perfil-view', loadChildren: './perfil-view/perfil-view.module#PerfilViewPageModule' },
-
-
-
-
-
+  { path: 'cadastro-perfil-n', loadChildren: './cadastro-perfil-n/cadastro-perfil-n.module#CadastroPerfilNPageModule' },
+  { path: 'perfil-n', loadChildren: './perfil-n/perfil-n.module#PerfilNPageModule' },
 
 ];
 
