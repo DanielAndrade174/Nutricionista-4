@@ -22,6 +22,7 @@ export class ChatUsuarioPage implements OnInit {
   id: string;
   firestore = firebase.firestore();
   settings = { timestampsInSnapshots: true };
+  imagem;
 
   conversa: Mensagem[] = [];
 
@@ -73,12 +74,23 @@ export class ChatUsuarioPage implements OnInit {
 
     ref.get().then(doc => {
       this.Usuario.setDados(doc.data());
-      this.Usuario.id = doc.idUsuario;
+      this.Usuario.id = doc.id;
+      this.downloadFoto();
     }).catch(function (error) {
       console.log("Error getting document:", error);
     });
 
   }
+
+  downloadFoto() {
+    let ref = firebase.storage().ref()
+      .child(`usuario/${this.idUsuario}.jpg`);
+
+    ref.getDownloadURL().then(url => {
+      this.imagem = url;
+    })
+  }
+
 
   atualiza() {
     let ref = this.firestore.doc('mensagem/' + this.idNutricionista).collection(this.idUsuario);

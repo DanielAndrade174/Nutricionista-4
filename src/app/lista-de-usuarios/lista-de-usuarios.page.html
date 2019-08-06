@@ -3,12 +3,15 @@
 
     <ion-icon (click)="Home()" slot="start" name="arrow-back" class="iconeconf"></ion-icon>
 
-    <ion-icon slot="start" name="contact" class="iconeconf" (click)="Perfil()"></ion-icon>
-
-    <div class="div2">
-      <ion-title>
-        <img src="../../assets/imagens/logo2.png" class="logo">
-      </ion-title>
+    <div class="div">
+      <ion-row class="row">
+        <ion-col size="2">
+          <img src="{{picture}}" class="perfil1" (click)="Perfil()" />
+        </ion-col>
+        <ion-col size="7">
+          <img src="../../assets/imagens/logo2.png" class="logo">
+        </ion-col>
+      </ion-row>
     </div>
 
     <ion-buttons slot="end">

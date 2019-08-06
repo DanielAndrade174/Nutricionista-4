@@ -6,3 +6,25 @@
 .sender{
   margin-right: 300px; 
 }
+
+input[type='file'] {
+  display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+.perfilx {
+
+  --background: url(../../assets/imagens/1.gif) no-repeat;
+
+}
+
+.perfil1{
+  height: 43px;
+  width: 43px;
+  border-radius: 50%;
+}
+
+.perfil2{
+  margin-top: 10px;
+  font-size: 22px;
+}

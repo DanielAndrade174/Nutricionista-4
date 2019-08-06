@@ -38,3 +38,25 @@ h3{
 ion-content {
   --background: #FFFAFA no-repeat center center / cover !important;
 }
+
+input[type='file'] {
+  display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+.perfilx {
+
+  --background: url(../../assets/imagens/1.gif) no-repeat;
+
+}
+
+.perfil1{
+  height: 43px;
+  width: 43px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.row{
+  text-align: center;
+}

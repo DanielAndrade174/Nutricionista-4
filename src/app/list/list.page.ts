@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Nutricionista } from '../model/nutricionista';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-list',
@@ -8,6 +11,14 @@ import { Router } from '@angular/router';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
+
+  id: string;
+  Nutricionista: Nutricionista = new Nutricionista();
+  picture: string = "../../assets/imagens/1.gif";
+
+  firestore = firebase.firestore();
+  settings = { timestampsInSnapshots: true }
+
   private selectedItem: any;
   private icons = [
     'flask',
@@ -22,7 +33,7 @@ export class ListPage implements OnInit {
     'build'
   ];
   public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor(public navctrl : NavController, public router : Router) {
+  constructor(public navctrl : NavController, public router : Router, private firebaseauth : AngularFireAuth,) {
     for (let i = 1; i < 11; i++) {
       this.items.push({
         title: 'Item ' + i,
@@ -30,15 +41,36 @@ export class ListPage implements OnInit {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
-  }
+    this.firebaseauth.authState.subscribe(obj => {
 
-  ngOnInit() {
+      this.id = this.firebaseauth.auth.currentUser.uid;
 
-  }
+      this.downloadFoto();
 
-  Perfil() {
-    this.router.navigate(['/perfil-n']);
-  }
+      let ref = this.firestore.collection('nutricionista').doc(this.id)
+      ref.get().then(doc => {
+        this.Nutricionista.setDados(doc.data());
+        this.Nutricionista.id = doc.id;
+      })
+    });
+}
+
+ngOnInit() {
+
+}
+
+Perfil() {
+  this.router.navigate(['/perfil-n']);
+}
+
+downloadFoto() {
+  let ref = firebase.storage().ref()
+    .child(`nutricionista/${this.id}.jpg`);
+
+  ref.getDownloadURL().then(url => {
+    this.picture = url;
+  })
+}
 
   ListaDeUsuarios(){
     this.router.navigate(['/lista-de-usuarios'])
