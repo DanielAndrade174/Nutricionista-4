@@ -46,10 +46,15 @@ export class ListaDeUsuariosPage implements OnInit {
     ref.get().then(doc => {
 
       doc.forEach(item =>{
+
         let n = new Usuario();
         n.id = item.id;
-        n.setDados(n);
-        this.listaDeUsuarios.push(n);
+
+        var ref = firebase.firestore().collection("usuario").doc(n.id).get().then(doc =>{
+          n.nome = doc.data().nome;
+          n.setDados(n);
+          this.listaDeUsuarios.push(n);
+        });
       });
 
       console.log(this.listaDeUsuarios);
