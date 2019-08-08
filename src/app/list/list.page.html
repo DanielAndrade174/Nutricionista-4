@@ -18,39 +18,18 @@
 
 <div>
   <ion-toolbar color="medium">
-    <ion-title>Escolha sua opção</ion-title>
+    <ion-title>Bem vindo, Nutricionista!</ion-title>
   </ion-toolbar>
 </div>
 
 <ion-content padding>
-  <div>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <img src="../../assets/imagens/roda-alimento.png" class="escolha">
-          <h3>Alimentação</h3>
-          <h6>Faça seus pedidos</h6>
-          <ion-button expand="block" size="default" color="dark" (click)="Home()">Ir</ion-button>
-        </ion-col>
-        <ion-col>
-          <img src="../../assets/imagens/usuarios.png" class="escolha">
-          <h3>Chat com Usuários</h3>
-          <h6>Faça suas consultas</h6>
-          <ion-button expand="block" size="default" color="dark" (click)="ListaDeUsuarios()">Ir</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <img src="../../assets/imagens/exercicio.png" class="escolha">
-          <h3>Exercicios Físicos</h3>
-          <h6>Faça seus exercicios</h6>
-          <ion-button expand="block" size="default" color="dark">Ir</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <div class="centro">
+    <ion-col>
+      <img src="../../assets/imagens/usuarios.png" class="escolha">
+      <h3>Ir para o Chat com Usuários</h3>
+      <h6>Faça suas consultas</h6>
+      <ion-button expand="block" size="default" color="dark" (click)="ListaDeUsuarios()">Ir</ion-button>
+    </ion-col>
   </div>
 
 </ion-content>

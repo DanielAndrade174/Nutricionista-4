@@ -1,17 +1,15 @@
 export class Mensagem{
 
     data : string;
-    de : string;
-    para : string;
+    idUsuario : string;
     mensagem : string;
+    idSender : string;
 
     constructor(){}
 
     setDados(obj : any){
         //this.data = obj.data;
-        this.data = obj.mensagem;
-        this.de = obj.de;
-        this.para = obj.para;
+        this.idSender = obj.idSender;
         this.mensagem = obj.mensagem;
     }
 }

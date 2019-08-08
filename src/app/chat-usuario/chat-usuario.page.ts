@@ -61,7 +61,9 @@ export class ChatUsuarioPage implements OnInit {
           let m = new Mensagem();
 
           m.setDados(c.doc.data());
+          m.idSender = c.doc.data().de
           this.conversa.push(m);
+          console.log(this.conversa);
         }
       })
 
